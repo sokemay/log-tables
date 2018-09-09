@@ -1,7 +1,6 @@
 import React from "react";
 import namor from "namor";
 import DateGenerator from "random-date-generator";
-import moment from 'moment';
 import "./index.css";
 
 const range = len => {
@@ -14,10 +13,15 @@ const range = len => {
 
 const newPerson = () => {
   const statusChance = Math.random();
+  let randomDate =  String(DateGenerator.getRandomDate())
   return {
-    firstName: namor.generate({ words: 1, numbers: 0 }),
+    id: (new Date()).valueOf().toString(),
+    name: namor.generate({ words: 1, numbers: 0 }),
+    price: Math.floor(Math.random() * 100),
+    firstName: namor.generate({ words: 1, numbers: 0 }) + ' ' +namor.generate({ words: 1, numbers: 0 }) + ' ' +namor.generate({ words: 1, numbers: 0 }) + ' ' +namor.generate({ words: 1, numbers: 0 }),
     lastName: namor.generate({ words: 1, numbers: 0 }),
-    date:moment(DateGenerator.getRandomDate()).format('DD-MM-YYYY'),
+    date:randomDate,
+    date_alt: randomDate,
     age: Math.floor(Math.random() * 30),
     visits: Math.floor(Math.random() * 100),
     progress: Math.floor(Math.random() * 100),
@@ -37,19 +41,3 @@ export function makeData(len = 5553) {
   });
 }
 
-export const Logo = () =>
-  <div style={{ margin: '1rem auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
-    For more examples, visit {''}
-  <br />
-    <a href="https://github.com/react-tools/react-table" target="_blank">
-      <img
-        src="https://github.com/react-tools/media/raw/master/logo-react-table.png"
-        style={{ width: `150px`, margin: ".5em auto .3em" }}
-      />
-    </a>
-  </div>;
-
-export const Tips = () =>
-  <div style={{ textAlign: "center" }}>
-    <em>Tip: Hold shift when sorting to multi-sort!</em>
-  </div>;

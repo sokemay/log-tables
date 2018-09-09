@@ -1,0 +1,78 @@
+[
+    {
+        "title": "Table 1",
+        "headers": [
+            {
+                "name": "First Name",
+                "accessor":"firstName",
+                "filterType": "text"
+            },
+           
+            {
+                "name": "Date of Birth",
+                "accessor":"date",
+                "filterType": "datetime"
+            },
+            
+            {
+                "name": "Age",
+                "accessor":"age",
+                "filterType": "number"
+            },
+            {
+                "name": "Status",
+                "accessor":"status",
+                "filterType": "multiselect",
+                "filterOptions": {
+                    "complicated": "Complicated",
+                    "single": "Single",
+                    "relationship": "Relationship"
+                }
+            },
+            {
+                "name": "Mood",
+                "accessor":"mood",
+                "filterType": "multiselect",
+                "filterOptions": {
+                    "happy": "Happy",
+                    "veryHappy": "Very Happy",
+                    "superHappy": "Super Happy"
+                }
+            }
+        ],
+        "data": [
+            {
+                "id": 1,
+                "firstName":"Test 1",
+                "date": "2018-02-01 10:10",
+                "age": 1,
+                "status": "single",
+                "mood": "happy"
+            },
+            {
+                "id": 2,
+                "firstName":"Test 2",
+                "date": "2018-02-01 10:10",
+                "age": 1,
+                "status": "relationship",
+                "mood": "superHappy"
+            },
+            {
+                "id": 3,
+                "firstName":"Test 3",
+                "date": "2018-02-01:10:10",
+                "age": 1,
+                "status": "single",
+                "mood": "veryHappy"
+            },
+            {
+                "id": 4,
+                "firstName":"Test 4",
+                "date": "2018-02-01 10:10",
+                "age": 1,
+                "status": "complicated",
+                "mood": "happy"
+            }
+        ]
+    }
+]
