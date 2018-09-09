@@ -74,5 +74,54 @@
                 "mood": "happy"
             }
         ]
+    },
+    {
+        "title": "Table 2",
+        "headers": [
+            {
+                "name": "First Name",
+                "accessor":"firstName",
+                "filterType": "text"
+            },
+            {
+                "name": "Mood",
+                "accessor":"mood",
+                "filterType": "multiselect",
+                "filterOptions": {
+                    "happy": "Happy",
+                    "veryHappy": "Very Happy",
+                    "superHappy": "Super Happy"
+                }
+            },
+           
+            {
+                "name": "Date of Birth",
+                "accessor":"date",
+                "filterType": "datetime"
+            },
+            
+            {
+                "name": "Age",
+                "accessor":"age",
+                "filterType": "number"
+            }
+            
+        ],
+        "data": [
+            {
+                "id": 11,
+                "firstName":"Test 1",
+                "date": "2018-02-01 10:10",
+                "age": 1,
+                "mood": "happy"
+            },
+            {
+                "id": 21,
+                "firstName":"Test 2",
+                "date": "2018-02-01 10:10",
+                "age": 1,   
+                "mood": "superHappy"
+            }
+        ]
     }
 ]

@@ -4,16 +4,14 @@ import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, { customFilter, multiSelectFilter, numberFilter, dateFilter, textFilter } from 'react-bootstrap-table2-filter';
-import { makeData } from "./Utils";
 import moment from 'moment';
 import DateRangeFilter from "./DateRangeFilter";
 
-import myData from './data.json';
 
 class BSTable extends Component {
-  constructor() {
-    super();
-   
+  constructor(props) {
+    super(props);
+    
     function setColumnSettings(headers) {
       let columns = [];
       for (let i = 0; i < headers.length; i++) {
@@ -58,11 +56,10 @@ class BSTable extends Component {
     }
 
     this.state = {
-      name: myData[0].title,
-      data: myData[0].data,
-      columns: setColumnSettings(myData[0].headers)
+      name: this.props.title,
+      data: this.props.data,
+      columns: setColumnSettings(this.props.headers)
     };
-
   }
 
   render() {
