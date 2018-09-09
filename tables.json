@@ -1,0 +1,38 @@
+[
+    ...,
+{
+    headers: [
+        {
+            name: "First Name",
+            accessor:"firstName",
+            type: "string",
+            filterType: "text"
+        },
+        {
+            name: "Date of Birth",
+            accessor:"dob",
+            type: "datetime",
+            filterType: "range"
+        },
+        {
+            name: "Age",
+            accessor:"age",
+            type: "number",
+            filterType: "inequality"
+        },
+        {
+            name: "Colours",
+            accessor:"colours",
+            type: "string",
+            filterType: "checkboxes",
+            filterOptions: [
+                blue: "Blue",
+                lightGrey: "Light Grey",
+                red: "Red"
+            ]
+        }
+    ],
+    data: [...]
+},
+...
+]
