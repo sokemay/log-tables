@@ -39,3 +39,18 @@
     max-width:1200px !important;
   }
 }
+
+.nav-item {
+  background-color: #fff;
+}
+.nav-item a {
+  color:#000;
+  display:block;
+  width:100%;
+  padding:15px;
+}
+.nav-item a:hover {
+  background-color: #bbb;
+  text-decoration: none;
+  color:#000;
+}

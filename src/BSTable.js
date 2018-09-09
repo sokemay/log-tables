@@ -11,7 +11,7 @@ import DateRangeFilter from "./DateRangeFilter";
 class BSTable extends Component {
   constructor(props) {
     super(props);
-    
+
     function setColumnSettings(headers) {
       let columns = [];
       for (let i = 0; i < headers.length; i++) {
@@ -27,7 +27,8 @@ class BSTable extends Component {
 
           case 'datetime':
             col['formatter'] = (cell) => {
-              return moment(cell,"YYYY/MM/DD HH:mm").format("DD/MM/YYYY HH:mm");
+              // first format value is read from json, second format value is displayed on frontend
+              return moment(cell, "YYYY/MM/DD HH:mm").format("DD/MM/YYYY HH:mm");
             }
             col['filter'] = dateFilter()
             break;
@@ -51,7 +52,7 @@ class BSTable extends Component {
         }
         columns.push(col)
       }
-      
+
       return columns
     }
 
