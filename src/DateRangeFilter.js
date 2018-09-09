@@ -12,21 +12,37 @@ export default class DateRangeFilter extends React.Component {
   }
   constructor(props) {
     super(props);
-    this.filter = this.filter.bind(this);
-    this.getValue = this.getValue.bind(this);
+    this.isFiltered = this.isFiltered.bind(this);
     this.startDate;
     this.endDate;
   }
-  getValue() {
-    return this.input.value;
-  }
+
   filter() {
-    if(this.endDate && this.startDate) {
-      console.log('filter now')
-        // filter()
-        // this.props.onFilter(this.getValue());
+    // if(this.endDate && this.startDate) {
+    //   console.log('filter now')
+    //     // filter()
+    //     // this.props.onFilter(this.getValue());
+    // }
+
+    if (!this.refs.start_date.value && !this.refs.end_date.value) {
+      this.props.filterHandler();
+    } else {
+      this.props.filterHandler({ callback: this.isFiltered });
     }
     
+  }
+  isFiltered(targetValue) {
+    if (this.refs.start_date.value && !this.refs.end_date.value) {
+      return targetValue >= this.refs.start_date.value;
+    }
+
+    if (!this.refs.start_date.value && this.refs.end_date.value) {
+      return targetValue <= this.refs.end_date.value;
+    }
+    
+    if (this.refs.start_date.value && this.refs.end_date.value) {
+      return targetValue >= this.refs.start_date.value && targetValue <= this.refs.end_date.value;
+    }
   }
   handleChange(e) {
     if(e.target.name === 'start_date') {
@@ -45,6 +61,7 @@ export default class DateRangeFilter extends React.Component {
         <div style={{display:"flex"}}>
 
         <input
+            ref="start_date"
             name="start_date"
             key="start_date"
             type="text"
@@ -52,6 +69,7 @@ export default class DateRangeFilter extends React.Component {
             onChange={(e) => {this.handleChange(e)}}
         />
          <input
+            ref="end_date"
             name="end_date"
             key="end_date"
             type="text"

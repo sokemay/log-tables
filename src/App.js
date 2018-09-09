@@ -23,7 +23,7 @@ class App extends Component {
           </header>
           <div className="container-fluid">
             <div className="row">
-              <div className="col-md-2">
+              <div className="col-md-1">
                 <ul className="nav flex-column nav-pills">
                   {tableList.map(function (table, i) {
                     let sanitisedURL = getSlug(table.title);
@@ -32,7 +32,7 @@ class App extends Component {
                 </ul>
 
               </div>
-              <div className="col-md-10">
+              <div className="col-md-11">
                 {tableList.map(function (table, i) {
                   return <Route key={table.title} path={`/${getSlug(table.title)}`} render={() => { return <BSTable key={table.title} headers={table.headers} title={table.title} data={table.data} /> }} />
                 })}

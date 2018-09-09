@@ -31,6 +31,9 @@ class BSTable extends Component {
               return moment(cell, "YYYY/MM/DD HH:mm").format("DD/MM/YYYY HH:mm");
             }
             col['filter'] = dateFilter()
+            // col['filter'] = customFilter()
+            // col['filterRenderer'] = (onFilter, column) =>
+            // <DateRangeFilter filterHandler={filterHandler} onFilter={ onFilter } column={ column } />
             break;
 
           case 'number':
@@ -65,7 +68,7 @@ class BSTable extends Component {
 
   render() {
     return (
-      <div className="container" style={{ marginTop: 50 }}>
+      <div style={{ marginTop: 50 }}>
         <h2 style={{ marginBottom: 30 }}>{this.state.name}</h2>
 
         <BootstrapTable
